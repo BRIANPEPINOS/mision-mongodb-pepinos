@@ -7,7 +7,7 @@ criaturas.insertOne({
     habitat: 'Montañas',
     nivelPeligro: 9,
     habilidades: ['Volar', 'Escupir fuego', 'Regeneración'],
-    fechaDescubrimiento: new Date('2024-03-15'),
+    descubierto_por: "Robin hood",
     descripcion: 'Una criatura mítica conocida por su gran tamaño y poderosas habilidades.'
 });
 criaturas.insertOne({
@@ -20,3 +20,37 @@ criaturas.insertOne({
     estadisticas: { ataque: 88, defensa: 92, velocidad: 40 },
     dimensiones: { longitud_m: 60, masa_ton: 120 }
 });
+
+// === Inserciones múltiples adicionales con insertMany() ===
+criaturas.insertMany([
+  {
+    nombre: "Licántropo Alfa",
+    habitat: "Bosques del Norte",
+    nivel_peligro: 7,
+    dieta: ["carne fresca"],
+    habilidades: ["transformación", "olfato agudo", "fuerza aumentada"],
+    descubierto_por: "Cazador Rurik",
+    fases_lunares: ["llena", "nueva"]
+  },
+  {
+    nombre: "Ave del Trueno",
+    habitat: "Cordillera del Cielo",
+    nivel_peligro: 9,
+    dieta: ["serpientes gigantes", "cabras salvajes"],
+    habilidades: ["rayos", "vuelo a gran altitud"],
+    descubierto_por: "Exploradora Kaela",
+    tamaño: { envergadura_m: 25, masa_kg: 700 },
+    simbolismo: "protección celestial"
+  },
+  {
+    nombre: "Troll de Caverna",
+    habitat: "Montañas Sombrías",
+    nivel_peligro: 6,
+    dieta: ["carne", "hongos cavernosos"],
+    habilidades: ["regeneración lenta", "golpe pesado"],
+    descubierto_por: "Mineros del Reino Gris",
+    debilidades: ["luz solar"],
+    comportamiento: "solitario"
+  }
+]);
+
