@@ -1,6 +1,8 @@
 use('bestiario');
 
 const criaturas = db.criaturas;
+
+// Inserciones individuales con insertOne()
 criaturas.insertOne({
     nombre: 'Dragón',
     tipo: 'Reptil',
@@ -21,7 +23,7 @@ criaturas.insertOne({
     dimensiones: { longitud_m: 60, masa_ton: 120 }
 });
 
-// === Inserciones múltiples adicionales con insertMany() ===
+// Inserciones múltiples adicionales con insertMany() 
 criaturas.insertMany([
   {
     nombre: "Licántropo Alfa",
@@ -72,6 +74,6 @@ db.criaturas.updateOne(
 
 // Actualización para incrementar el nivel de peligro de todas las criaturas en un hábitat específico
 db.criaturas.updateMany(
-  { habitat: "Montañas" },  // Filtro: todas las criaturas del bosque
-  { $inc: { nivel_peligro: 1 } }    // Acción: incrementa en +1 el nivel de peligro
+  { habitat: "Montañas" }, 
+  { $inc: { nivel_peligro: 1 } }    
 );
