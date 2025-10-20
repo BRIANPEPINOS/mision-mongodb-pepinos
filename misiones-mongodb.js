@@ -54,3 +54,5 @@ criaturas.insertMany([
   }
 ]);
 
+// Consulta para mostrar todas las criaturas insertadas
+db.criaturas.find();
