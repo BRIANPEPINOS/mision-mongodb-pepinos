@@ -59,3 +59,6 @@ db.criaturas.find();
 
 // Consulta para encontrar criaturas de un habitat determinado
 db.criaturas.find({ habitat: "Montañas" });
+
+// Consulta para encontrar criaturas con nivel de peligro mayor a 8
+db.criaturas.find({ nivel_peligro: { $gt: 8 } });
