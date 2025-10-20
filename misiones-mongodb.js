@@ -69,3 +69,9 @@ db.criaturas.updateOne(
   { nombre: "Troll de Caverna" },          // Filtro: qué criatura queremos actualizar
   { $addToSet: { habilidades: "rugido ensordecedor" } }  // Acción: agregar al array sin duplicar
 );
+
+// Actualización para incrementar el nivel de peligro de todas las criaturas en un hábitat específico
+db.criaturas.updateMany(
+  { habitat: "Montañas" },  // Filtro: todas las criaturas del bosque
+  { $inc: { nivel_peligro: 1 } }    // Acción: incrementa en +1 el nivel de peligro
+);
