@@ -44,7 +44,7 @@ criaturas.insertMany([
   },
   {
     nombre: "Troll de Caverna",
-    habitat: "Montañas Sombrías",
+    habitat: "Montañas",
     nivel_peligro: 6,
     dieta: ["carne", "hongos cavernosos"],
     habilidades: ["regeneración lenta", "golpe pesado"],
@@ -58,7 +58,14 @@ criaturas.insertMany([
 db.criaturas.find();
 
 // Consulta para encontrar criaturas de un habitat determinado
-db.criaturas.find({ habitat: "Montañas" });
+db.criaturas.find({ habitat: "Montañas"});
 
 // Consulta para encontrar criaturas con nivel de peligro mayor a 8
 db.criaturas.find({ nivel_peligro: { $gt: 8 } });
+
+
+// Actualización para agregar una nueva habilidad a una criatura específica
+db.criaturas.updateOne(
+  { nombre: "Troll de Caverna" },          // Filtro: qué criatura queremos actualizar
+  { $addToSet: { habilidades: "rugido ensordecedor" } }  // Acción: agregar al array sin duplicar
+);
