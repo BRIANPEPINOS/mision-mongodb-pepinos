@@ -56,3 +56,6 @@ criaturas.insertMany([
 
 // Consulta para mostrar todas las criaturas insertadas
 db.criaturas.find();
+
+// Consulta para encontrar criaturas de un habitat determinado
+db.criaturas.find({ habitat: "Montañas" });
