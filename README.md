@@ -12,7 +12,7 @@
 **Nombre completo:** TNTE Pepinós Arboleda Brian  
 **Asignatura:** Modelado avanzado de Base de Datos  
 **Fecha:** 20 Octubre 2025  
-
+**Repositorio de github:** https://github.com/BRIANPEPINOS/mision-mongodb-pepinos
 ---
 
 ## 📜 **El Bestiario Digital**
