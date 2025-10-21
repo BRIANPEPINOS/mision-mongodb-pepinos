@@ -1,4 +1,4 @@
-# 🐉 **Misión MongoDB — El Bestiario Digital**
+# 🐉 **TAREA 2 EL CRONISTA DE DATOS NOSQL**
 
 ![MongoDB](https://img.shields.io/badge/Base%20de%20Datos-NoSQL-green)
 ![VSCode](https://img.shields.io/badge/Herramienta-VSCode-blue)
