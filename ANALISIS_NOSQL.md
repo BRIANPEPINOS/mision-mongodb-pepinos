@@ -1,5 +1,5 @@
 # 🧙‍♂️ **ANÁLISIS Y REFLEXIÓN — MANUSCRITO DEL CRONISTA DE DATOS**
-> *Misión MongoDB — El Bestiario Digital*
+>
 
 ![MongoDB](https://img.shields.io/badge/Base%20de%20Datos-NoSQL-green)
 ![VSCode](https://img.shields.io/badge/Herramienta-VSCode-blue)
@@ -9,7 +9,7 @@
 
 ## 📜 **Introducción**
 
-El *Bestiario Digital* fue el escenario perfecto para aplicar los principios de las bases de datos **NoSQL**, donde cada criatura fantástica presenta atributos únicos, complejos y a menudo impredecibles.  
+El Bestiario Digital fue el escenario perfecto para aplicar los principios de las bases de datos **NoSQL**, donde cada criatura fantástica presenta atributos únicos, complejos y a menudo impredecibles.  
 A diferencia de los modelos relacionales tradicionales, **MongoDB** permitió capturar esta diversidad con una estructura flexible y natural, facilitando la experimentación, el crecimiento del modelo y la representación fiel del mundo imaginario.
 
 ---
