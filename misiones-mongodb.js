@@ -68,7 +68,7 @@ db.criaturas.find({ nivel_peligro: { $gt: 8 } });
 
 // Actualización para agregar una nueva habilidad a una criatura específica
 db.criaturas.updateOne(
-  { nombre: "Troll de Caverna" },          // Filtro: qué criatura queremos actualizar
+  { nombre: "Troll de Caverna" },        
   { $addToSet: { habilidades: "rugido ensordecedor" } }  // Acción: agregar al array sin duplicar
 );
 
