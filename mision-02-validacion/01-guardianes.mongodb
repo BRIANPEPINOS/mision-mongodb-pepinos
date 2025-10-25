@@ -1,0 +1,50 @@
+use('bestiario')
+db.guardianes.drop()
+
+db.createCollection('guardianes', {
+    validator: {
+        $jsonSchema: {},
+        bsonType: 'object',
+        requerid: ["nombre", "rango", "password_acceso", "inventario"],
+        properties: {
+            nombre: {
+                bsonType: 'string'
+            },
+            rango: {
+                enum: ["Aprendiz", "Maestro", "Gran Maestro"]
+            },
+            password_acceso: {
+                bsonType: 'string',
+                minLength: 8,
+                pattern: '^(?=.*[A-Z])(?=.*\\d).{8,}$',
+                description: 'Debe tener al menos 8 caracteres, una letra mayúscula y un número'
+            },
+            nivel: {
+                bsonType: 'number',
+                minimum: 1,
+                maximum: 99
+            },
+            inventario: {
+                bsonType: 'array',
+                items: {
+                    bsonType: 'object',
+                    requerided: ['nombre_item', 'cantidad'],
+                    properties: {
+                        nombre_item: {
+                            bsonType: 'string'
+                        },
+                        cantidad: {
+                            bsonType: 'number',
+                            minimum: 1
+                        }
+
+                    }
+
+
+                }
+            }
+        }
+
+
+    }
+});
