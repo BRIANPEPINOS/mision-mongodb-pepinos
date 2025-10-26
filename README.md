@@ -1,3 +1,32 @@
+# 🐉 **MISION MONGODB PEPINOS**
+## 📂 **Estructura del Proyecto**
+
+```bash
+MISSION-MONGODB-PEPINOS/
+│
+├── src/
+│   ├── mision-01-mongodb/
+│   │   ├── ANALISIS_NOSQL.md
+│   │   ├── ANALISIS_NOSQL.pdf
+│   │   ├── misiones-mongodb.js
+│   │   ├── README.md
+│   │   └── README.pdf
+│   │
+│   ├── mision-02-validacion/
+│   │   ├── 01-guardianes.mongodb
+│   │   ├── 02_definicion_criaturas.mongodb
+│   │   ├── 03_pruebas_insercion.mongodb
+│   │   ├── ANALISIS_VALIDACION.md
+│   │   ├── README.md
+│   │   └── README.pdf
+│
+├── .editorconfig
+├── .gitignore
+├── docker-compose.yml
+└── README.md  ← Archivo principal con la descripción general del proyecto
+ ```
+
+
 # 🐉 **TAREA 2 EL CRONISTA DE DATOS NOSQL**
 
 ![MongoDB](https://img.shields.io/badge/Base%20de%20Datos-NoSQL-green)
