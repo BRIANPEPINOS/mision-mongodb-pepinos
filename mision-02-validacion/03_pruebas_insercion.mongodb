@@ -105,3 +105,46 @@ intento("Inserción criatura invalida", () => db.criaturas.insertOne({
     },
     id_guardian: guardOk ? guardOk._id : ObjectId()
 }));
+
+
+//MENSAJE DE ERROR AL INSERTAR UNA CRIATURA INVALIDA POR TENER UN ARRAY VACIO EN HABILIDADES
+/*
+=== Inserción criatura invalida ===
+ERROR detectado:
+MongoServerError: Document failed validation
+    at InsertOneOperation.handleOk (c:\Users\brian\.vscode\extensions\mongodb.mongodb-vscode-1.14.2\dist\languageServerWorker.js:134:2758675)
+    at topology (c:\Users\brian\.vscode\extensions\mongodb.mongodb-vscode-1.14.2\dist\languageServerWorker.js:134:2746220)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async t.executeOperation (c:\Users\brian\.vscode\extensions\mongodb.mongodb-vscode-1.14.2\dist\languageServerWorker.js:134:2744619)
+    at async Collection.insertOne (c:\Users\brian\.vscode\extensions\mongodb.mongodb-vscode-1.14.2\dist\languageServerWorker.js:134:2583329)
+    at async Proxy.insertOne (c:\Users\brian\.vscode\extensions\mongodb.mongodb-vscode-1.14.2\dist\languageServerWorker.js:134:654073)
+    at async Proxy.insertOne (c:\Users\brian\.vscode\extensions\mongodb.mongodb-vscode-1.14.2\dist\languageServerWorker.js:134:743754)
+    at async Proxy.<anonymous> (c:\Users\brian\.vscode\extensions\mongodb.mongodb-vscode-1.14.2\dist\languageServerWorker.js:134:745698)
+    at async Proxy.<anonymous> (c:\Users\brian\.vscode\extensions\mongodb.mongodb-vscode-1.14.2\dist\languageServerWorker.js:134:746133)
+    at async evalmachine.<anonymous>:69:68
+    at async evalmachine.<anonymous>:364:27
+    at async ShellEvaluator.innerEval (c:\Users\brian\.vscode\extensions\mongodb.mongodb-vscode-1.14.2\dist\languageServerWorker.js:134:913861)
+    at async ShellEvaluator.customEval (c:\Users\brian\.vscode\extensions\mongodb.mongodb-vscode-1.14.2\dist\languageServerWorker.js:134:914129)
+    at async OpenContextRuntime.evaluate (c:\Users\brian\.vscode\extensions\mongodb.mongodb-vscode-1.14.2\dist\languageServerWorker.js:134:71621)
+    at async ElectronRuntime.evaluate (c:\Users\brian\.vscode\extensions\mongodb.mongodb-vscode-1.14.2\dist\languageServerWorker.js:134:73033)
+    at async t.execute (c:\Users\brian\.vscode\extensions\mongodb.mongodb-vscode-1.14.2\dist\languageServerWorker.js:134:3478957)
+    at async c:\Users\brian\.vscode\extensions\mongodb.mongodb-vscode-1.14.2\dist\languageServerWorker.js:134:3479588 {
+  errorLabelSet: Set(0) {},
+  errorResponse: {
+    index: 0,
+    code: 121,
+    errmsg: 'Document failed validation',
+    errInfo: {
+      failingDocumentId: ObjectId('68fe5db9fad53de72e703f9f'),
+      details: [Object]
+    }
+  },
+  index: 0,
+  code: 121,
+  errInfo: {
+    failingDocumentId: ObjectId('68fe5db9fad53de72e703f9f'),
+    details: { operatorName: '$jsonSchema', schemaRulesNotSatisfied: [Array] }
+  }
+}
+
+*/
