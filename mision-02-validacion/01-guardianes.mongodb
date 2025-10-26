@@ -15,12 +15,11 @@ db.createCollection('guardianes', {
                 },
                 password_acceso: {
                     bsonType: 'string',
-                    minLength: 8,
                     pattern: '^(?=.*[A-Z])(?=.*\\d).{8,}$',
                     description: 'Debe tener al menos 8 caracteres, una letra mayúscula y un número'
                 },
                 nivel: {
-                    bsonType: 'number',
+                    anyOf: [{ bsonType: 'int' }, { bsonType: 'long' }],
                     minimum: 1,
                     maximum: 99
                 },
@@ -34,7 +33,7 @@ db.createCollection('guardianes', {
                                 bsonType: 'string'
                             },
                             cantidad: {
-                                bsonType: 'number',
+                                anyOf: [{ bsonType: 'int' }, { bsonType: 'long' }],
                                 minimum: 1
                             }
 

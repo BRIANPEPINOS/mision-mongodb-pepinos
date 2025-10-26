@@ -87,13 +87,13 @@ intento("Inserción criatura valida", () => db.criaturas.insertOne({
     es_legendaria: true,        // boolean
     habilidades: ["Volar", "Rugido Gélido"], // array >=1, strings únicos
     ficha_veterinaria: {
-        salud: "Óptima",          // enum: ["Óptima","Regular","Crítica"]
+        salud: "Optima",          // enum: ["Óptima","Regular","Crítica"]
         ultima_revision: ISODate("2025-10-10T00:00:00Z") // Date
     },
     id_guardian: guardOk ? guardOk._id : ObjectId() // si por alguna razón no encontró, evita romper el script
 }));
 
-intento("Inserción criatura valida", () => db.criaturas.insertOne({
+intento("Inserción criatura invalida", () => db.criaturas.insertOne({
     nombre: "Umbralídeo",
     habitat: "Bosque Umbrío",
     nivel_peligro: 5,

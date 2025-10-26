@@ -14,7 +14,7 @@ db.createCollection('criaturas', {
                     bsonType: 'string'
                 },
                 nivel_peligro: {
-                    bsonType: 'number',
+                    anyOf: [{ bsonType: 'int' }, { bsonType: 'long' }],
                     minimum: 1,
                     maximum: 10
                 },
