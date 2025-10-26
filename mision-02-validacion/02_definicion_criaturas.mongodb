@@ -1,0 +1,55 @@
+use('criaturas')
+db.criaturas.drop()
+
+db.createCollection('criaturas', {
+    validator: {
+        jssonSchema: {},
+        bsonTypeObject,
+        requerid: ['nombre', 'habitat', 'nivel_peligro', 'es_legendaria', 'habilidades', 'ficha_veterinaria', 'id_guardian'],
+        $jsonSchema: {
+            properties: {
+                nombre: {
+                    bsonType: 'string'
+                },
+                habitat: {
+                    bsonType: 'string'
+                },
+                nivel_peligro: {
+                    bstonType: 'number',
+                    minimun: 1,
+                    maximum: 10
+                },
+                es_legendaria: {
+                    bsonType: 'boolean'
+                },
+                habilidades: {
+                    bsonType: 'array',
+                    minItems: 1,
+                    uniqueItems: true,
+                    items: {
+                        bsonType: 'string',
+
+                    }
+                },
+                ficha_veterinaria: {
+                    bsonType: 'object',
+                    requerid: ['salud', 'ultima_revision'],
+                    properties: {
+                        salud: {
+                            enum: ['Optima', 'Regular', 'Critica']
+                        },
+                        ultima_revision: {
+                            bsonType: 'date'
+
+                        }
+                    }
+                },
+                id_guardian: {
+                    bsonType: 'objectId'
+
+                }
+            }
+        }
+
+    }
+});
