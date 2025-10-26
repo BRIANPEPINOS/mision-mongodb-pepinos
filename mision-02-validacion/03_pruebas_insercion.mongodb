@@ -24,12 +24,51 @@ intento("Inserción guardian valido", () => db.guardianes.insertOne({
 }));
 
 intento("Inserción guardian invalido", () => db.guardianes.insertOne({
-    nombre: "Aldara Sombrargenta",
-    rango: "Maestro",                 // enum válido
-    password_acceso: "ClaveFuerte9",  // cumple: >=8, tiene mayúscula y dígito
-    nivel: 42,                        // entero 1..99 (opcional)
-    inventario: [
-        { nombre_item: "Orbe de Luz", cantidad: 2 },
-        { nombre_item: "Pergamino Arcano", cantidad: 1 }
-    ]
+    nombre: "Borin Martillonegro",
+  rango: "Aprendiz",          // válido
+  password_acceso: "password123", // NO tiene mayúscula
+  nivel: 10,
+  inventario: [
+    { nombre_item: "Frasco de Éter", cantidad: 3 }
+  ]
 }));
+
+//MENSAJE DE ERROR POR INGRESAR UN GUARDIA INVALIDO PUES NO CUMPLIA CON EL ESQUEMA DE VALIDACION PASSWORD
+/*
+=== Inserción guardian invalido ===
+ERROR detectado:
+MongoServerError: Document failed validation
+    at InsertOneOperation.handleOk (c:\Users\brian\.vscode\extensions\mongodb.mongodb-vscode-1.14.2\dist\languageServerWorker.js:134:2758675)
+    at topology (c:\Users\brian\.vscode\extensions\mongodb.mongodb-vscode-1.14.2\dist\languageServerWorker.js:134:2746220)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async t.executeOperation (c:\Users\brian\.vscode\extensions\mongodb.mongodb-vscode-1.14.2\dist\languageServerWorker.js:134:2744619)
+    at async Collection.insertOne (c:\Users\brian\.vscode\extensions\mongodb.mongodb-vscode-1.14.2\dist\languageServerWorker.js:134:2583329)
+    at async Proxy.insertOne (c:\Users\brian\.vscode\extensions\mongodb.mongodb-vscode-1.14.2\dist\languageServerWorker.js:134:654073)
+    at async Proxy.insertOne (c:\Users\brian\.vscode\extensions\mongodb.mongodb-vscode-1.14.2\dist\languageServerWorker.js:134:743754)
+    at async Proxy.<anonymous> (c:\Users\brian\.vscode\extensions\mongodb.mongodb-vscode-1.14.2\dist\languageServerWorker.js:134:745698)
+    at async Proxy.<anonymous> (c:\Users\brian\.vscode\extensions\mongodb.mongodb-vscode-1.14.2\dist\languageServerWorker.js:134:746133)
+    at async evalmachine.<anonymous>:68:68
+    at async evalmachine.<anonymous>:240:27
+    at async ShellEvaluator.innerEval (c:\Users\brian\.vscode\extensions\mongodb.mongodb-vscode-1.14.2\dist\languageServerWorker.js:134:913861)
+    at async ShellEvaluator.customEval (c:\Users\brian\.vscode\extensions\mongodb.mongodb-vscode-1.14.2\dist\languageServerWorker.js:134:914129)
+    at async OpenContextRuntime.evaluate (c:\Users\brian\.vscode\extensions\mongodb.mongodb-vscode-1.14.2\dist\languageServerWorker.js:134:71621)
+    at async ElectronRuntime.evaluate (c:\Users\brian\.vscode\extensions\mongodb.mongodb-vscode-1.14.2\dist\languageServerWorker.js:134:73033)
+    at async t.execute (c:\Users\brian\.vscode\extensions\mongodb.mongodb-vscode-1.14.2\dist\languageServerWorker.js:134:3478957)
+    at async c:\Users\brian\.vscode\extensions\mongodb.mongodb-vscode-1.14.2\dist\languageServerWorker.js:134:3479588 {
+  errorLabelSet: Set(0) {},
+  errorResponse: {
+    index: 0,
+    code: 121,
+    errmsg: 'Document failed validation',
+    errInfo: {
+      failingDocumentId: ObjectId('68fe5684b0d815af77812da6'),
+      details: [Object]
+    }
+  },
+  index: 0,
+  code: 121,
+  errInfo: {
+    failingDocumentId: ObjectId('68fe5684b0d815af77812da6'),
+    details: { operatorName: '$jsonSchema', schemaRulesNotSatisfied: [Array] }
+  }
+}*/
