@@ -25,12 +25,12 @@ intento("Inserción guardian valido", () => db.guardianes.insertOne({
 
 intento("Inserción guardian invalido", () => db.guardianes.insertOne({
     nombre: "Borin Martillonegro",
-  rango: "Aprendiz",          // válido
-  password_acceso: "password123", // NO tiene mayúscula
-  nivel: 10,
-  inventario: [
-    { nombre_item: "Frasco de Éter", cantidad: 3 }
-  ]
+    rango: "Aprendiz",          // válido
+    password_acceso: "password123", // NO tiene mayúscula
+    nivel: 10,
+    inventario: [
+        { nombre_item: "Frasco de Éter", cantidad: 3 }
+    ]
 }));
 
 //MENSAJE DE ERROR POR INGRESAR UN GUARDIA INVALIDO PUES NO CUMPLIA CON EL ESQUEMA DE VALIDACION PASSWORD
@@ -72,3 +72,36 @@ MongoServerError: Document failed validation
     details: { operatorName: '$jsonSchema', schemaRulesNotSatisfied: [Array] }
   }
 }*/
+
+const guardOk = db.guardianes.findOne(
+    { nombre: "Aldara Sombrargenta" },
+    { _id: 1, nombre: 1 }
+);
+print("\n-- Guardián válido encontrado para relación (id_guardian) --");
+printjson(guardOk);
+
+intento("Inserción criatura valida", () => db.criaturas.insertOne({
+    nombre: "Dracoleón",
+    habitat: "Cumbres Nevadas",
+    nivel_peligro: 8,           // entero 1..10
+    es_legendaria: true,        // boolean
+    habilidades: ["Volar", "Rugido Gélido"], // array >=1, strings únicos
+    ficha_veterinaria: {
+        salud: "Óptima",          // enum: ["Óptima","Regular","Crítica"]
+        ultima_revision: ISODate("2025-10-10T00:00:00Z") // Date
+    },
+    id_guardian: guardOk ? guardOk._id : ObjectId() // si por alguna razón no encontró, evita romper el script
+}));
+
+intento("Inserción criatura valida", () => db.criaturas.insertOne({
+    nombre: "Umbralídeo",
+    habitat: "Bosque Umbrío",
+    nivel_peligro: 5,
+    es_legendaria: false,
+    habilidades: [], // <-- Vacío: debe fallar
+    ficha_veterinaria: {
+        salud: "Regular",
+        ultima_revision: ISODate("2025-10-15T00:00:00Z")
+    },
+    id_guardian: guardOk ? guardOk._id : ObjectId()
+}));
