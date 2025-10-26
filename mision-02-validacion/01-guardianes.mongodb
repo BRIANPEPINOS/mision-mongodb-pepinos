@@ -5,7 +5,7 @@ db.createCollection('guardianes', {
     validator: {
         $jsonSchema: {
             bsonType: 'object',
-            requerid: ["nombre", "rango", "password_acceso", "inventario"],
+            required: ["nombre", "rango", "password_acceso", "inventario"],
             properties: {
                 nombre: {
                     bsonType: 'string'
@@ -28,7 +28,7 @@ db.createCollection('guardianes', {
                     bsonType: 'array',
                     items: {
                         bsonType: 'object',
-                        requerided: ['nombre_item', 'cantidad'],
+                        required: ['nombre_item', 'cantidad'],
                         properties: {
                             nombre_item: {
                                 bsonType: 'string'

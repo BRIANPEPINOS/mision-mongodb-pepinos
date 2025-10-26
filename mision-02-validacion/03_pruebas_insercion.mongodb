@@ -1,0 +1,35 @@
+use('bestiario')
+function intento(titulo, fn) {
+    print(`\n=== ${titulo} ===`);
+    try {
+        const res = fn();
+        print("Resultado:");
+        printjson(res);
+    } catch (e) {
+        print("ERROR detectado:");
+        print(e); // Copia el texto de este error en el bloque de comentarios solicitado
+    }
+}
+
+
+intento("Inserción guardian valido", () => db.guardianes.insertOne({
+    nombre: "Aldara Sombrargenta",
+    rango: "Maestro",                 // enum válido
+    password_acceso: "ClaveFuerte9",  // cumple: >=8, tiene mayúscula y dígito
+    nivel: 42,                        // entero 1..99 (opcional)
+    inventario: [
+        { nombre_item: "Orbe de Luz", cantidad: 2 },
+        { nombre_item: "Pergamino Arcano", cantidad: 1 }
+    ]
+}));
+
+intento("Inserción guardian invalido", () => db.guardianes.insertOne({
+    nombre: "Aldara Sombrargenta",
+    rango: "Maestro",                 // enum válido
+    password_acceso: "ClaveFuerte9",  // cumple: >=8, tiene mayúscula y dígito
+    nivel: 42,                        // entero 1..99 (opcional)
+    inventario: [
+        { nombre_item: "Orbe de Luz", cantidad: 2 },
+        { nombre_item: "Pergamino Arcano", cantidad: 1 }
+    ]
+}));
